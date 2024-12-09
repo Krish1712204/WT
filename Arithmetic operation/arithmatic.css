@@ -1,0 +1,33 @@
+        .container {
+            background-color: rgb(211, 198, 81);
+            width: 400px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 10px 5px 5px rgb(165, 31, 31);
+            margin-top: 15%;
+            margin-left: 40%;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        input,
+        label,
+        button {
+            padding: 7px;
+            border-radius: 5px;
+        }
+        
+        label {
+            font-size: 20px;
+        }
+        
+        button {
+            margin-left: 10px;
+        }
+        
+        #result {
+            background-color: rgb(123, 89, 155);
+        }

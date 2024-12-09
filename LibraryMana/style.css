@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Login Section */
+.login-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Dashboard Section */
+.dashboard {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.header h1 {
+    color: #333333;
+}
+
+.books-section, .issue-section, .issued-section {
+    margin: 20px 0;
+}
+
+.books-section h2, .issue-section h2, .issued-section h2 {
+    color: #555555;
+}
+
+.books-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.books-section li {
+    margin: 5px 0;
+    color: #666666;
+}
+
+.issue-section input, .issue-section button {
+    margin: 5px;
+}
+
+.issue-section button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.issue-section button:hover {
+    background-color: #218838;
+}
+
+.issued-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.issued-section th, .issued-section td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.issued-section th {
+    background-color: #007bff;
+    color: white;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management</title>
+    <style>
+        .operation-fields { display: flex; margin-bottom:10px; }
+    </style>
+</head>
+
+<body>
+
+    <h1>Employee Management System</h1>
+    
+    <form action="Sample" method="post">
+        <label for="ch">Choose an operation:</label><br>
+        <select name="ch" id="ch" required>
+            <option value="">Select an operation</option>
+            <option value="1">Insert Employee</option>
+            <option value="2">Update Employee Salary</option>
+            <option value="3">Delete Employee</option>
+            <option value="4">View All Employees</option>
+        </select>
+        <br><br>
+
+        <div id="insertFields" class="operation-fields">
+            <h3>Insert Employee</h3>
+            <label for="id">Employee ID:</label>
+            <input type="number" name="id" id="id"><br>
+            <label for="name">Employee Name:</label>
+            <input type="text" name="name" id="name"><br>
+            <label for="sal">Employee Salary:</label>
+            <input type="number" name="sal" id="sal"><br>
+        </div>
+
+        <div id="updateFields" class="operation-fields">
+            <h3>Update Employee Salary</h3>
+            <label for="empid">Employee ID:</label>
+            <input type="number" name="empid" id="empid"><br>
+            <label for="empsal">New Salary:</label>
+            <input type="number" name="empsal" id="empsal"><br>
+        </div>
+
+        <div id="deleteFields" class="operation-fields">
+            <h3>Delete Employee</h3>
+            <label for="empid">Employee ID:</label>
+            <input type="number" name="empid" id="empid"><br>
+        </div>
+
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    
+
+    <script>
+        const operationSelect = document.getElementById('ch');
+        const insertFields = document.getElementById('insertFields');
+        const updateFields = document.getElementById('updateFields');
+        const deleteFields = document.getElementById('deleteFields');
+
+        operationSelect.addEventListener('change', function() {
+            insertFields.style.display = 'none';
+            updateFields.style.display = 'none';
+            deleteFields.style.display = 'none';
+
+            if (this.value === '1') {
+                insertFields.style.display = 'block';
+            } else if (this.value === '2') {
+                updateFields.style.display = 'block';
+            } else if (this.value === '3') {
+                deleteFields.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

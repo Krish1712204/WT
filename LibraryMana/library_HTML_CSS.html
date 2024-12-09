@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div class="login-container" id="login-section">
+        <h1>Library Management System</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Library Dashboard -->
+    <div class="dashboard" id="dashboard-section" style="display: none;">
+        <div class="header">
+            <h1>XYZ College Library</h1>
+        </div>
+
+        <!-- Books Available Section -->
+        <div class="books-section">
+            <h2>Books Available</h2>
+            <ul id="books-list">
+                <!-- Books will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Issue Book Section -->
+        <div class="issue-section">
+            <h2>Issue a Book</h2>
+            <form id="issue-form">
+                <input type="text" id="book-name" placeholder="Enter Book Name" required>
+                <input type="text" id="student-id" placeholder="Enter Student ID" required>
+                <button type="submit">Issue Book</button>
+            </form>
+            <p id="issue-message"></p>
+        </div>
+
+        <!-- Issued Books Section -->
+        <div class="issued-section">
+            <h2>Issued Books</h2>
+            <table id="issued-books-table">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Student ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Issued books will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

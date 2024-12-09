@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="./form_validation.css">
+</head>
+
+<body>
+
+    <div class="block">
+
+        <form action="/submit_application" method="post" enctype="multipart/form-data">
+            <h2 style="text-align: center; font-size: 30px;">Job Application Form</h2>
+            <!-- input-text -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required><br><br>
+
+            <label for="position">Position </label>
+            <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="web_dev">Web Developer</option>
+                <option value="app_dev">App Developer</option>
+                <option value="data_analytics">Data Analyst</option>
+                <option value="cloud_engineer">Cloud Engineer</option>
+                <option value="ai_engineer">AI Engineer</option>
+            </select><br><br>
+
+            <label for="resume">Resume Upload:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" required><br><br>
+
+            <label for="experience">Previous Experience:</label>
+            <textarea id="experience" name="experience" rows="4" required></textarea><br><br>
+
+            <label for="references">References (Optional):</label>
+            <textarea id="references" name="references" rows="3"></textarea><br><br>
+
+            <button onclick="return validate()" type="submit">Submit Application</button>
+
+        </form>
+    </div>
+    <script src="./form_validation.js"></script>
+</body>
+
+</html>

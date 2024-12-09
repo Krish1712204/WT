@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        
+        td {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        tr:hover {
+            background-color: #429f26;
+            cursor: pointer;
+        }
+        
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        button:hover {
+            background-color: #1b8a20;
+            transform: translateY(-5px);
+        }
+        
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(76, 175, 80, 0.4);
+            outline: none;
+        }
+        
+        input[type="text"]::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+
+<body ng-controller="todoController">
+
+    <h2>To-Do List</h2> <br>
+
+
+    <input type="text" ng-model="newtask" placeholder=" Hello Prasad !! Enter a new task"> <br>
+    <button ng-click="addnewtask()">Add Task</button> <br>
+
+
+    <table>
+        <tr>
+            <th colspan="3">Task Details</th>
+        </tr>
+        <tr ng-repeat="obj in arr">
+            <td>
+
+                <span ng-if="!obj.isEditing">{{obj.taskname}}</span>
+                <input type="text" ng-if="obj.isEditing" ng-model="obj.taskname">
+            </td>
+            <td>
+
+                <button ng-click="editTask(obj)">Edit</button>
+            </td>
+            <td>
+
+                <button ng-click="deleteTask($index)">Delete</button>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+<script>
+    let app = angular.module('todoApp', []);
+
+    app.controller('todoController', function($scope) {
+        $scope.arr = [];
+
+
+        $scope.addnewtask = function() {
+            let obj = {};
+            obj.taskname = $scope.newtask;
+            obj.isEditing = false;
+            $scope.arr.push(obj);
+            y
+            $scope.newtask = "";
+        };
+
+
+        $scope.deleteTask = function(index) {
+            $scope.arr.splice(index, 1);
+        };
+
+
+        $scope.editTask = function(obj) {
+            obj.isEditing = !obj.isEditing;
+        };
+    });
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="module1" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body ng-controller="mycontroller">
+    Enter the task <input type="text" ng-model="tname">
+    <button ng-click="addtask()">Add Task</button><br><br><br>
+
+    <table border="1">
+        <tr>
+            <th>Task Name</th>
+            <th>Delete Task</th>
+            <th>Edit Task</th>
+        </tr>
+        <tr ng-repeat="x in arr">
+            <td ng-repeat="(key,value) in x">{{value}}</td>
+            <td><button ng-click="deletetask($index)">Delete</button></td>
+            <td><button ng-click="edittask($index)">Edit</button></td>
+
+        </tr>
+    </table>
+</body>
+
+</html>

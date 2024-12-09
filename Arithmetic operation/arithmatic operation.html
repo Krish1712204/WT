@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="arithmatic.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Calculator</h1><br>
+        <label for="value1">Enter 1st Number: </label>
+        <input type="text" name="val1" id="value1"><br><br>
+        <label for="value2">Enter 2nd Number: </label>
+        <input type="text" name="val2" id="value2"><br><br>
+
+        <button onclick="Add()">Addition</button>
+        <button onclick="Sub()">Subtraction</button>
+        <button onclick="Mul()">Multiplication</button>
+        <button onclick="Div()">Division</button>
+        <div>
+            <h3 id="result"></h3>
+        </div>
+    </div>
+
+    <script src="arithmatic.js"></script>
+</body>
+
+</html>
