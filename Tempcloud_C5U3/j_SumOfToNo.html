@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+    
+</head>
+<body>
+    <h1>Sum Calculator</h1>
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p id="result"></p>
+
+
+    <script>
+        function calculateSum(){
+            const num1=parseInt(document.getElementById("num1").value);
+            const num2=parseInt(document.getElementById("num2").value);
+
+            if(isNaN(num1) || isNaN(num2)){
+                document.getElementById("result").innerText='enter valid nos';
+                return;
+            }
+
+            const sum=num1+num2;
+
+            document.getElementById('result').innerText=`${sum}`;
+        }
+    </script>
+</body>
+</html>

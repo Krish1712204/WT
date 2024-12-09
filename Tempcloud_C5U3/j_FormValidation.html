@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation and Display</title>
+    <script>
+        function validateForm() {
+            // Get input values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+
+            // Validate Name
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            // Validate Email
+            if (!email.includes("@") || !email.includes(".")) {
+                alert("Invalid email address.");
+                return false;
+            }
+
+            // Validate Mobile Number
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                alert("Invalid mobile number. It must be 10 digits.");
+                return false;
+            }
+
+            // Display the data in the table
+            addToTable(name, email, mobile);
+            return false; // Prevent page reload
+        }
+
+        function addToTable(name, email, mobile) {
+            var tableBody = document.getElementById("tableBody");
+            var row = `<tr>
+                           <td>${name}</td>
+                           <td>${email}</td>
+                           <td>${mobile}</td>
+                       </tr>`;
+            tableBody.innerHTML += row;
+        }
+    </script>
+</head>
+<body>
+    <h2>Form Validation</h2>
+    <form onsubmit="return validateForm();">
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="Enter your email"><br><br>
+
+        <label>Mobile:</label>
+        <input type="text" id="mobile" placeholder="Enter your mobile"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Submitted Data</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+</body>
+</html>

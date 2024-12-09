@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Functionalities</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+      .container {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Functionality Demo</h1>
+    <!-- Change Text -->
+    <div class="container">
+      <p id="textPara">This is the original text.</p>
+      <button onclick="changeText()">Change Text</button>
+    </div>
+
+
+
+    <!-- Add Item -->
+    <div class="container">
+      <ul id="itemList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+      <button onclick="addItem()">Add Item</button>
+    </div>
+
+
+
+    <!-- Remove Item -->
+    <div class="container">
+      <button onclick="removeItem()">Remove Last Item</button>
+    </div>
+
+
+
+    <!-- Toggle Class -->
+    <div class="container">
+      <div id="toggleDiv" style="padding: 10px; border: 1px solid #000">
+        This isatogglediv.
+      </div>
+      <button onclick="toggleClass()">Toggle Class</button>
+    </div>
+
+
+
+    <!-- Show Alert -->
+    <div class="container">
+      <input type="text" id="inputBox" placeholder="Enter text" />
+      <button onclick="showAlert()">Show Alert</button>
+    </div>
+
+
+    <!-- Hide Element -->
+    <div class="container">
+      <div id="hideDiv" style="padding: 10px; background-color: lightblue">
+        Thisdivwillbehidden.
+      </div>
+
+      <button onclick="hideElement()">Hide Element</button>
+    </div>
+
+
+
+    <!-- Show Element -->
+    <div class="container">
+      <div
+        id="showDiv"
+        class="hidden"
+        style="padding: 10px; background-color: lightgreen"
+      >
+        This is a hidden div.
+      </div>
+      <button onclick="showElement()">Show Element</button>
+    </div>
+
+
+
+    <!-- Change Color -->
+    <div class="container">
+      <div id="colorDiv" style="padding: 10px; border: 1px solid #000">
+        Changemybackground color.
+      </div>
+      <button onclick="changeColor()">Change Color</button>
+    </div>
+
+
+
+    <!-- Counter -->
+    <div class="container">
+      <div id="counterDiv">0</div>
+      <button onclick="incrementCounter()">Increment Counter</button>
+    </div>
+
+
+    <!-- Input to Text -->
+    <div class="container">
+      <input type="text" id="dynamicInput" placeholder="Type something" />
+      <p id="displayText">You typed:</p>
+    </div>
+    <script>
+      // 1. Change Text
+      function changeText() {
+        document.getElementById("textPara").innerHTML =
+          "The text has beenchanged!";
+      }
+      // 2. Add Item
+      function addItem() {
+        const newItem = document.createElement("li");
+        newItem.textContent = "New Item";
+        document.getElementById("itemList").appendChild(newItem);
+      }
+      // 3. Remove Item
+      function removeItem() {
+        const list = document.getElementById("itemList");
+        if (list.lastElementChild) {
+          list.removeChild(list.lastElementChild);
+        }
+      }
+      // 4. Toggle Class
+      function toggleClass() {
+        document.getElementById("toggleDiv").classList.toggle("highlight");
+      }
+      // 5. Show Alert
+      function showAlert() {
+        const inputText = document.getElementById("inputBox").value;
+        alert("You entered: " + inputText);
+      }
+      // 6. Hide Element
+      function hideElement() {
+        document.getElementById("hideDiv").classList.add("hidden");
+      }
+      // 7. Show Element
+      function showElement() {
+        document.getElementById("showDiv").classList.remove("hidden");
+      }
+      // 8. Change Color
+      function changeColor() {
+        document.getElementById("colorDiv").style.backgroundColor =
+          "lightcoral";
+      }
+      // 9. Counter
+      function incrementCounter() {
+        const counterDiv = document.getElementById("counterDiv");
+        counterDiv.textContent = parseInt(counterDiv.textContent) + 1;
+      }
+      // 10. Input to Text
+      document
+        .getElementById("dynamicInput")
+        .addEventListener("input", function () {
+          document.getElementById("displayText").textContent =
+            "You typed: " + this.value;
+        });
+    </script>
+  </body>
+</html>

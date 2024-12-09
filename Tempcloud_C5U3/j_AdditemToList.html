@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="item">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+    <button onclick="add()">Add Item</button>
+    <button onclick="remove()">Remove Item</button>
+
+    <script>
+        function add(){
+            const item=document.createElement("li");
+            item.textContent="Item";
+            document.getElementById("item").appendChild(item);
+
+        }
+
+        function remove(){
+            const list=document.getElementById("item");
+
+            if(list.lastElementChild){
+                list.removeChild(list.lastElementChild);
+            }
+        }
+    </script>
+
+
+</body>
+</html>

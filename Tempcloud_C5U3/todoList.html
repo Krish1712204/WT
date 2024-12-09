@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            background-color: aqua;
+            margin-left: 35%;
+            margin-top: 10%;
+        }
+        
+        input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            padding: 10px;
+            margin: 5px;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        li.completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .remove-btn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" placeholder="New task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById('taskInput');
+            var taskValue = taskInput.value.trim();
+            if (taskValue === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            var li = document.createElement('li');
+            li.innerHTML = `
+                <span onclick="toggleCompletion(this)">${taskValue}</span>
+                <button class="remove-btn" onclick="removeTask(this)">Remove</button>
+            `;
+            document.getElementById('taskList').appendChild(li);
+            taskInput.value = "";
+        }
+
+        function toggleCompletion(span) {
+            var li = span.parentElement;
+            li.classList.toggle('completed');
+        }
+
+        function removeTask(button) {
+            var li = button.parentElement;
+            li.remove();
+        }
+    </script>
+</body>
+
+</html>

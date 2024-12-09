@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Result</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px black solid;
+        padding: 10px;
+        width: 300px;
+        height: auto;
+        background-color: azure;
+        border-radius: 10px;
+      }
+      input[type="text"],
+      input[type="number"] {
+        height: 30px;
+        border-radius: 5px;
+      }
+      button {
+        height: 30px;
+        background-color: crimson;
+        border-radius: 5px;
+      }
+      table {
+        width: 330px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Students Results</h1>
+      <form action="none">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="roll">Roll:</label>
+        <input type="number" name="roll" id="roll" />
+
+        <label for="percentage">Percentage:</label>
+        <input type="number" name="percentage" id="percentage" />
+
+        <button type="button" onclick="add()">Add Data</button>
+      </form>
+
+      <table border="1px black solid" id="tabledata">
+        <caption>
+          <h1>DATA</h1>
+        </caption>
+        <thead style="background-color: bisque">
+          <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <script>
+        function add() {
+          const name = document.getElementById("name").value;
+          const roll = document.getElementById("roll").value;
+          const percentage = document.getElementById("percentage").value;
+
+          const table = document
+            .getElementById("tabledata")
+            .querySelector("tbody");
+
+          const row = document.createElement("tr");
+          row.innerHTML = ` 
+                <td> ${name}</td>
+                <td> ${roll}</td>
+                <td> ${percentage}</td>
+                `;
+
+          table.appendChild(row);
+
+          document.getElementById("name").value = " ";
+          document.getElementById("roll").value = " ";
+          document.getElementById("percentage").value = " ";
+
+          // or easy
+
+
+          // const body=document.getElementById("tbody");
+          // const row=`
+          //            <td>${name}</td>
+          //            <td>${roll}</td>
+          //            <td>${percentage}</td>
+          // `
+          // body.innerHTML+=row;
+        }
+      </script>
+    </div>
+  </body>
+</html>

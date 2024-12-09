@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        Remove Dropdown Item
+    </h2>
+
+    <select name="ok" id="item">
+        <option value="option1">Option1</option>
+        <option value="option2">Option2</option>
+        <option value="option3">Option3</option>
+        <option value="option4">Option4</option>
+        <option value="option5">Option5</option>
+        <option value="option6">Option6</option>
+    </select>
+    <br>
+    <button onclick="remove()">Remove</button>
+   
+
+    <script>
+        function remove(){
+            const drop=document.getElementById("item");
+            if(drop.selectedIndex!=-1){
+                drop.remove(drop.selectedIndex);
+            }
+            else{
+                alert("No items");
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

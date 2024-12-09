@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Set Color</h2>
+
+    <label for="color">Enter Color name:</label>
+    <input type="text" name="color" id="color">
+    <br><br>
+    <button onclick="setColor()">Change the Color</button>
+
+    <p id="para">This is para Whose color is Changing</p>
+
+
+    <script>
+        function setColor(){
+            const color=document.getElementById('color').value;
+
+            document.getElementById('para').style.backgroundColor=color;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ToDoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+            font-size: 14px;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        li input[type="text"] {
+            flex: 1;
+            padding: 5px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body ng-controller="ToDoController">
+
+    <div class="container">
+        <h2>To-Do List</h2>
+        <input type="text" ng-model="newTask" placeholder="Enter a task">
+        <button ng-click="addTask()">Add</button>
+
+        <ul>
+            <li ng-repeat="task in tasks">
+                <input type="text" ng-model="task.text" ng-disabled="!task.editing">
+                <button ng-click="editTask(task)">{{ task.editing ? 'Save' : 'Edit' }}</button>
+                <button ng-click="deleteTask($index)">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        angular.module("ToDoApp", []).controller("ToDoController", function ($scope) {
+            $scope.tasks = []; // List of tasks
+
+            // Add a new task
+            $scope.addTask = function () {
+                if ($scope.newTask) {
+                    $scope.tasks.push({ text: $scope.newTask, editing: false });
+                    $scope.newTask = ""; // Clear input
+                }
+            };
+
+            // Edit or save a task
+            $scope.editTask = function (task) {
+                task.editing = !task.editing; // Toggle editing state
+            };
+
+            // Delete a task
+            $scope.deleteTask = function (index) {
+                $scope.tasks.splice(index, 1); // Remove task from list
+            };
+        });
+    </script>
+
+</body>
+</html>

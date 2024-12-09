@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cnt">0</div>
+    <button onclick="add()">Increment</button>
+
+
+    <script>
+        function add(){
+            const num=document.getElementById("cnt");
+            num.textContent=parseInt(num.textContent)+1;
+        }
+    </script>
+</body>
+</html>

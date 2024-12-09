@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("myCtr",function($scope){
+            $scope.collection=[];
+            $scope.newData={};
+
+            $scope.addEntry=function(){
+                if($scope.newData && $scope.newData.name && $scope.newData.city){
+                    $scope.collection.push($scope.newData);
+                    $scope.newData={};
+                }
+            }
+        });
+    </script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 100px;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .con{
+            background-color: azure;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 40px;
+            width: 30%;
+            align-content: center;
+            padding: 20px;
+        }
+        .form{
+            gap: 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        input[type="text"]{
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button{
+            background-color: crimson;
+            color: white;
+            height: 40px;
+        }
+        button:hover{
+            background-color: cyan;
+            color: black;
+        }
+        table{
+            padding: 20px;
+        }
+        table tr{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="myCtr" class="con">
+        <table border="1px" solid black>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>city</th>
+            </tr>
+
+            <tr ng-repeat="entry in collection">
+                <th>{{$index+1}}</th>
+                <th>{{entry.name}}</th>
+                <th>{{entry.city}}</th>
+            </tr>
+        </table>
+
+        <form ng-submit="addEntry()" class="form">
+            Name: <input type="text" ng-model="newData.name"  placeholder="Enter Name"><br>
+            city: <input type="text" ng-model="newData.city"  placeholder="Enter City"><br>
+            <button type="submit">Add Entry</button>
+        </form>
+    </div>
+</body>
+</html>

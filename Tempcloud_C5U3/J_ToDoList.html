@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+            border: 1px solid black;
+            box-shadow: 10px 10px 15px rgba(0,0,0,3);
+            
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            box-shadow: -1px -1px 15px rgba(0,0,0,3);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        button:hover{
+            background-color: bisque;
+            box-shadow: 10px 10px 15px lightcoral;
+        }
+        .con{
+            background-color: antiquewhite;
+            align-items: center;
+            width: 400px;
+            padding: 20px;
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="con">
+
+    <h2>Simple To-Do List</h2>
+    
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="todoList">
+        <!-- List of tasks will be displayed here -->
+    </ul>
+</div>
+
+    <script>
+        function addTask() {
+            var input = document.getElementById('todoInput');
+            var task = input.value.trim();
+
+            // Check if the input is not empty
+            if (task !== "") {
+                var ul = document.getElementById('todoList');
+                var li = document.createElement('li');
+                li.textContent = task;
+
+                // Append the new task to the list
+                ul.appendChild(li);
+
+                // Clear the input field
+                input.value = "";
+            }
+
+            // const value=document.getElementById("todoInput").value;
+            // const list=document.getElementById("todoList");
+            // const item=`
+            //             <li>${value}</li>
+            // `
+            // list.innerHTML+=item;
+        }
+    </script>
+
+</body>
+</html>
